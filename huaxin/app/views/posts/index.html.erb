@@ -16,7 +16,7 @@
     <td><%= image_tag post.pic.url(:index), :class => "pic" %></td>
     <td><%= link_to '显示', post %></td>
     <td><%= link_to '编辑', edit_post_path(post) %></td>
-    <td><%= link_to '删除', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to '删除', post, method: :delete, data: { confirm: '确定删除?' } %></td>
   </tr>
 <% end %>
 </table>
