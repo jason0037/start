@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>名称:</b>
+  <%= @post.name %>
+</p>
+
+<p>
+  <b>存放位置:</b>
+  <%= @post.position %>
+</p>
+<p>
+  <b>图片:</b>
+  <%= image_tag @post.pic.url(:original), :class => "pic" %>
+</p>
+
+
+<%= link_to '编辑', edit_post_path(@post) %>
+<%= link_to '返回', posts_path %>

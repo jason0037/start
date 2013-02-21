@@ -1,0 +1,26 @@
+<h1>列表</h1>
+<div class="right"><%= link_to '新增', new_post_path,:class=>"btn"%></div>
+<table class="table table-bordered table-striped">
+  <tr>
+    <th>名称</th>
+    <th>存放位置</th>
+    <th>图片</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @posts.each do |post| %>
+  <tr>
+    <td><%= post.name %></td>
+    <td><%= post.position %></td>
+    <td><%= image_tag post.pic.url(:index), :class => "pic" %></td>
+    <td><%= link_to '显示', post %></td>
+    <td><%= link_to '编辑', edit_post_path(post) %></td>
+    <td><%= link_to '删除', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<div class="digg_pagination">
+  <%= will_paginate @posts %>
+</div>
