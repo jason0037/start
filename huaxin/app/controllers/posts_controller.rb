@@ -1,8 +1,14 @@
+require 'pp'
 class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.paginate(:page=>params[:page],:per_page=>5,:order => 'created_at DESC')
+    if !params[:search].nil?
+      key = params[:search][:search]
+      @posts = Post.where("name like ?","%#{key}%").paginate(:page=>params[:page],:per_page=>10,:order => 'created_at DESC')
+    else
+      @posts = Post.paginate(:page=>params[:page],:per_page=>10,:order => 'created_at DESC')
+    end
 
     respond_to do |format|
       format.html # index.html.erb

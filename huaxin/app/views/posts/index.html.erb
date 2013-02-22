@@ -1,5 +1,9 @@
 <h1>列表</h1>
 <div class="right"><%= link_to '新增', new_post_path,:class=>"btn"%></div>
+<%=form_for :search,:url=>posts_path,:html=>{:class=>"form-search"},:method=>:get do |f|%>
+<%=f.text_field :search,:placeholder=>"名称",:value=>""%>
+<%=f.submit "查询",:class=>"btn"%>
+<%end%>
 <table class="table table-bordered table-striped">
   <tr>
     <th>名称</th>
